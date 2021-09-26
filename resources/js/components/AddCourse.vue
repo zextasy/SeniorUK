@@ -13,32 +13,6 @@
               <label>Name</label>
               <input type="text" class="form-control" v-model="course.name" />
             </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                class="form-control"
-                v-model="course.email"
-              />
-            </div>
-            <div class="form-group">
-              <label>Mobile</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="course.mobile"
-              />
-            </div>
-            <div class="form-group">
-              <label>Gender</label>
-              <select class="form-control" v-model="course.gender">
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
             <button type="submit" class="btn btn-primary">Add</button>
           </form>
         </div>

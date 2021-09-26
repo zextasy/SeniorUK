@@ -42,9 +42,6 @@ class CourseController extends Controller
         //
         $course = new Course([
             'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'mobile' => $request->input('mobile'),
-            'gender' => $request->input('gender')
         ]);
         $course->save();
 

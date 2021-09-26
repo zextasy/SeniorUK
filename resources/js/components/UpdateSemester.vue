@@ -10,35 +10,17 @@
         <div class="panel-body">
           <form @submit.prevent="updateSemester">
             <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control" v-model="semester.name" />
+              <label>Year</label>
+              <input type="text" class="form-control" v-model="semester.year" />
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                class="form-control"
-                v-model="semester.email"
-              />
-            </div>
-            <div class="form-group">
-              <label>Mobile</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="semester.mobile"
-              />
-            </div>
-            <div class="form-group">
-              <label>Gender</label>
-              <select class="form-control" v-model="semester.gender">
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+              <label>Season</label>
+              <select class="form-control" v-model="semester.season">
+                <option value="">Select season</option>
+                <option value="spring">Spring</option>
+                <option value="fall">Fall</option>
               </select>
             </div>
-
             <button type="submit" class="btn btn-primary">Update</button>
           </form>
         </div>

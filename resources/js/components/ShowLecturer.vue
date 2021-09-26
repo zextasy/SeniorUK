@@ -45,7 +45,7 @@
               <tr v-for="course_group in lecturer.course_groups" :key="course_group.id">
                 <td>{{ course_group.id }}</td>
                 <td>{{ course_group.name }}</td>
-                <td>{{ course_group.semester.id}}</td>
+                <td>{{ course_group.id}}</td>
                 <td>{{ course_group.id }}</td>
                 <td>
                   <div class="btn-group" role="group">

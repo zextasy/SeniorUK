@@ -41,10 +41,8 @@ class SemesterController extends Controller
     {
         //
         $semester = new Semester([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'mobile' => $request->input('mobile'),
-            'gender' => $request->input('gender')
+            'year' => $request->input('year'),
+            'season' => $request->input('season'),
         ]);
         $semester->save();
 

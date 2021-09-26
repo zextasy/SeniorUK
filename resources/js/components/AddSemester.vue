@@ -20,7 +20,7 @@
             <div class="form-group">
               <label>Season</label>
               <select class="form-control" v-model="semester.season">
-                <option value="">Select year</option>
+                <option value="">Select Season</option>
                 <option value="spring">Spring</option>
                 <option value="fall">Fall</option>
               </select>

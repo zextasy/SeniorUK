@@ -15,6 +15,7 @@
                 <th>Name</th>
                 <th>Course</th>
                 <th>Lecturer</th>
+                <th>Semester</th>
                 <th>Students</th>
                 <th>Actions</th>
               </tr>
@@ -24,6 +25,7 @@
                 <td>{{ course_group.id }}</td>
                 <td>{{ course_group.name }}</td>
                 <td>{{ course_group.course }}</td>
+                <td>{{ course_group.id }}</td>
                 <td>{{ course_group.id }}</td>
                 <td>{{ course_group.id }}</td>
                 <td>

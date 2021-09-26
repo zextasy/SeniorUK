@@ -59,7 +59,7 @@ class LecturerController extends Controller
     public function show($id)
     {
         //
-        $lecturer = Lecturer::with('course_groups.course.semester')->find($id);
+        $lecturer = Lecturer::with('course_groups.course')->find($id);
         return response()->json($lecturer);        
     }
 

@@ -5,27 +5,17 @@
       <h2>Semester : {{ semester.id }}</h2>
       <div class="panel panel-primary">
         <div class="panel-heading">
-            View Semester
+            <h4>View Semester</h4>
             <router-link to="/semesters" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Semester List</router-link>
         </div>
+
         <div class="panel-body">
+        <hr>
           <table>
             <tr>
               <th>Name:</th>
-              <td>{{ semester.name }}</td>
+              <td>{{ semester.season }} {{ semester.year }}</td>
             </tr>
-            <tr>
-              <th>Telephone:</th>
-              <td>{{ semester.mobile }}</td>
-            </tr>
-            <tr>
-              <th>Email:</th>
-               <td>{{ semester.email }}</td>
-            </tr>
-            <tr>
-              <th>Gender:</th>
-               <td>{{ semester.gender }}</td>
-            </tr>        
           </table>
         </div>
       </div>

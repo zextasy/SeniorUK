@@ -13,7 +13,7 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Semester</th>
+                <th>Lecturers</th>
                 <th>Students</th>
                 <th>Actions</th>
               </tr>
@@ -22,8 +22,8 @@
               <tr v-for="course in courses" :key="course.id">
                 <td>{{ course.id }}</td>
                 <td>{{ course.name }}</td>
-                <td>{{ course.semester}}</td>
-                <td>{{ course.students }}</td>
+                <td>{{ course.id}}</td>
+                <td>{{ course.id }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link
