@@ -15,12 +15,12 @@
               <td>{{ course_group.name }}</td>
             </tr>
             <tr>
-              <th>Course:</th>
-              <td>{{ course_group.course.name }}</td>
-            </tr>
-            <tr>
               <th>Lecturer:</th>
                <td>{{ course_group.lecturer.name }}</td>
+            </tr>
+            <tr>
+              <th>Course:</th>
+              <td>{{ course_group.course.name }}</td>
             </tr>
             <tr>
               <th>Semester:</th>
