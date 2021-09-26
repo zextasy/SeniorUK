@@ -16,15 +16,15 @@
             </tr>
             <tr>
               <th>Course:</th>
-              <td>{{ course_group.course.name }}</td>
+              <td>{{ course.name }}</td>
             </tr>            
             <tr>
               <th>Lecturer:</th>
-               <td>{{ course_group.lecturer.name }}</td>
+               <td>{{ lecturer.name }}</td>
             </tr>
             <tr>
               <th>Semester:</th>
-               <td>{{ course_group.semester.season }} {{ course_group.semester.year }}</td>
+               <td>{{ semester.season }} {{ semester.year }}</td>
             </tr>                    
             <tr>
               <th>Students:</th>
@@ -82,13 +82,20 @@ export default {
   data() {
     return {
       course_group: {},
+      course: {},
+      lecturer: {},
+      semester: {},
     };
   },
   created() {
     this.axios
       .get(`/api/course-groups/${this.$route.params.id}`)
-      .then((res) => {
-        this.course_group = res.data;
+      .then((response) => {
+        this.course_group = response.data;
+        this.course = response.data.course;
+        this.lecturer = response.data.lecturer;
+        this.semester = response.data.semester;
+        console.log(response);
       });
   },
 };
