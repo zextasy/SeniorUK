@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $courses = Course::latest('id')->get();
+        $courses = Course::withCount('lecturers')->withCount('course_groups')->latest('id')->get();
         return response()->json($courses);     
     }
 

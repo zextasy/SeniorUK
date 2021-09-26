@@ -1,42 +1,17 @@
 <template>
   <div>
     <div class="container">
-      <h2>Update Course</h2>
+      <h2>Update Course Group</h2>
       <div class="panel panel-primary">
         <div class="panel-heading">
             Update Course Group
-            <router-link to="/course-groups" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Course List</router-link>
+            <router-link to="/course-groups" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Course Group List</router-link>
         </div>
         <div class="panel-body">
-          <form @submit.prevent="updateCourse">
+          <form @submit.prevent="updateCourseGroup">
             <div class="form-group">
               <label>Name</label>
               <input type="text" class="form-control" v-model="course_group.name" />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                class="form-control"
-                v-model="course_group.email"
-              />
-            </div>
-            <div class="form-group">
-              <label>Mobile</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="course_group.mobile"
-              />
-            </div>
-            <div class="form-group">
-              <label>Gender</label>
-              <select class="form-control" v-model="course_group.gender">
-                <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
@@ -51,14 +26,14 @@
 export default {
   data() {
     return {
-      course: {},
+      course_group: {},
     };
   },
   created() {
     this.axios
       .get(`/api/course-groups/${this.$route.params.id}`)
       .then((res) => {
-        this.course = res.data;
+        this.course_group = res.data;
       });
   },
   methods: {
@@ -66,7 +41,7 @@ export default {
       this.axios
         .patch(
           `/api/course-groups/${this.$route.params.id}`,
-          this.course
+          this.course_group
         )
         .then((res) => {
           this.$router.push({ name: "home" });

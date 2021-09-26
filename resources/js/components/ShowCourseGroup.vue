@@ -2,11 +2,11 @@
   <div>
     <div class="container">
 
-      <h2>Course : {{ course_group.id }}</h2>
+      <h2>Course Group: {{ course_group.id }}</h2>
       <div class="panel panel-primary">
         <div class="panel-heading">
             View Course Group
-            <router-link to="/course-groups" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Course List</router-link>
+            <router-link to="/course-groups" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Course Group List</router-link>
         </div>
         <div class="panel-body">
           <table>
@@ -15,16 +15,20 @@
               <td>{{ course_group.name }}</td>
             </tr>
             <tr>
-              <th>Telephone:</th>
-              <td>{{ course_group.mobile }}</td>
+              <th>Course:</th>
+              <td>{{ course_group.course.name }}</td>
             </tr>
             <tr>
-              <th>Email:</th>
-               <td>{{ course_group.email }}</td>
+              <th>Lecturer:</th>
+               <td>{{ course_group.lecturer.name }}</td>
             </tr>
             <tr>
-              <th>Gender:</th>
-               <td>{{ course_group.gender }}</td>
+              <th>Semester:</th>
+               <td>{{ course_group.semester.season }} {{ course_group.semester.year }}</td>
+            </tr>                    
+            <tr>
+              <th>Students:</th>
+               <td>{{ course_group.id }}</td>
             </tr>        
           </table>
         </div>
@@ -37,14 +41,14 @@
 export default {
   data() {
     return {
-      course: {},
+      course_group: {},
     };
   },
   created() {
     this.axios
       .get(`/api/course-groups/${this.$route.params.id}`)
       .then((res) => {
-        this.course = res.data;
+        this.course_group = res.data;
       });
   },
 };

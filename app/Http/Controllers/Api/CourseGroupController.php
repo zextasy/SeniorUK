@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Models\CourseGroup;
 use Illuminate\Http\Request;
 
+use App\Models\Course;
+use App\Models\Lecturer;
+use App\Models\Semester;
+
 class CourseGroupController extends Controller
 {
     /**
@@ -17,7 +21,7 @@ class CourseGroupController extends Controller
     public function index()
     {
         //
-        $course_groups = CourseGroup::latest('id')->get();
+        $course_groups = CourseGroup::with('course', 'lecturer', 'semester')->latest('id')->get(); //withCount('students')->
         return response()->json($course_groups);     
     }
 
@@ -42,9 +46,9 @@ class CourseGroupController extends Controller
         //
         $course_group = new CourseGroup([
             'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'mobile' => $request->input('mobile'),
-            'gender' => $request->input('gender')
+            'course_id' => $request->input('course_id'),
+            'lecturer_id' => $request->input('lecturer_id'),
+            'semester_id' => $request->input('semester_id')
         ]);
         $course_group->save();
 
@@ -60,7 +64,7 @@ class CourseGroupController extends Controller
     public function show($id)
     {
         //
-        $course_group = CourseGroup::find($id);
+        $course_group = CourseGroup::with('course', 'lecturer', 'semester')->find($id);
         return response()->json($course_group);        
     }
 

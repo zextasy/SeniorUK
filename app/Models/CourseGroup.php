@@ -13,6 +13,7 @@ class CourseGroup extends Model
         'name',
         'course_id',
         'lecturer_id',
+        'semester_id',
     ];  
 
 

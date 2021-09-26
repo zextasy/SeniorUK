@@ -14,18 +14,6 @@
               <th>Name:</th>
               <td>{{ course.name }}</td>
             </tr>
-            <tr>
-              <th>Telephone:</th>
-              <td>{{ course.mobile }}</td>
-            </tr>
-            <tr>
-              <th>Email:</th>
-               <td>{{ course.email }}</td>
-            </tr>
-            <tr>
-              <th>Gender:</th>
-               <td>{{ course.gender }}</td>
-            </tr>        
           </table>
         </div>
       </div>

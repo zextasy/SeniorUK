@@ -13,26 +13,33 @@ class Course extends Model
         'name',
     ];   
     /**
-     * Get the lecturer for the course group.
+     * Get the course groups for the course.
+     */
+    public function course_groups()
+    {
+        return $this->hasMany(CourseGroup::class);
+    }    
+    /**
+     * Get the lecturers for the course.
      */
     public function lecturers()
     {
-        return $this->hasManyThrough(Lecturer::class, CourseGroup::class);
+        return $this->belongsToMany(Lecturer::class, CourseGroup::class);
     }
     /**
-     * Get the semester for the course_group.
+     * Get the semesters for the course_group.
      */
     public function semesters()
     {
-        return $this->hasManyThrough(Semester::class, CourseGroup::class);
+        return $this->belongsToMany(Semester::class, CourseGroup::class);
     }                 
     /**
-     * Get the students for the course group.
+     * Get the students for the course.
      */
     public function students()
     {
         // Use Pivot
-        return $this->hasManyThrough(Student::class, CourseGroup::class);
+        // return $this->belongsToMany(Student::class, CourseGroup::class);
     }
 
 

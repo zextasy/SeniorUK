@@ -14,7 +14,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Lecturers</th>
-                <th>Students</th>
+                <th> Course Groups</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -22,8 +22,8 @@
               <tr v-for="course in courses" :key="course.id">
                 <td>{{ course.id }}</td>
                 <td>{{ course.name }}</td>
-                <td>{{ course.id}}</td>
-                <td>{{ course.id }}</td>
+                <td>{{ course.lecturers_count}}</td>
+                <td>{{ course.course_groups_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link
