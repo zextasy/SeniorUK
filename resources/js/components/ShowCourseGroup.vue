@@ -15,12 +15,12 @@
               <td>{{ course_group.name }}</td>
             </tr>
             <tr>
-              <th>Lecturer:</th>
-               <td>{{ course_group.lecturer.name }}</td>
-            </tr>
-            <tr>
               <th>Course:</th>
               <td>{{ course_group.course.name }}</td>
+            </tr>            
+            <tr>
+              <th>Lecturer:</th>
+               <td>{{ course_group.lecturer.name }}</td>
             </tr>
             <tr>
               <th>Semester:</th>
@@ -48,7 +48,6 @@
                 <th>Email</th>
                 <th>Mobile</th>
                 <th>Gender</th>
-                <th>Courses</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -59,7 +58,6 @@
                 <td>{{ student.email }}</td>
                 <td>{{ student.mobile }}</td>
                 <td>{{ student.gender }}</td>
-                <td>{{ student.course_groups_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link

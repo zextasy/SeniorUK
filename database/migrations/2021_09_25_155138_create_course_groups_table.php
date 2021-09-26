@@ -17,9 +17,9 @@ class CreateCourseGroupsTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->foreignId('course_id');
-            $table->foreignId('lecturer_id');
-            $table->foreignId('semester_id');            
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
+            $table->foreignId('lecturer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('semester_id')->constrained()->onDelete('cascade');            
             
             $table->timestamps();
         });
