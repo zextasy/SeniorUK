@@ -64,7 +64,7 @@ class CourseGroupController extends Controller
     public function show($id)
     {
         //
-        $course_group = CourseGroup::with('course', 'lecturer', 'semester','students')->find($id);
+        $course_group = CourseGroup::with('course', 'lecturer', 'semester','students')->withCount('students')->find($id);
         return response()->json($course_group);        
     }
 

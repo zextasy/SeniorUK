@@ -27,7 +27,6 @@
       <div class="panel panel-primary">
         <div class="panel-heading">
             Course Groups
-            <router-link to="/course-groups/add" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Add Course Group</router-link>
         </div>
         <div class="panel-body">
           <table class="table">
