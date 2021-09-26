@@ -20,7 +20,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="lecturer in lecturers" :key="lecturer.id">
+              <tr v-for="lecturer in lecturers.data" :key="lecturer.id">
                 <td>{{ lecturer.id }}</td>
                 <td>{{ lecturer.name }}</td>
                 <td>{{ lecturer.email }}</td>
@@ -49,6 +49,7 @@
               </tr>
             </tbody>
           </table>
+          <pagination :data="lecturers" align="center" size="small" :limit=10 @pagination-change-page="getResults"></pagination>
         </div>
       </div>
     </div>
@@ -59,16 +60,24 @@
 export default {
   data() {
     return {
-      lecturers: [],
+      lecturers: {},
     };
   },
   created() {
-    this.axios.get("/api/lecturers").then((response) => {
-      this.lecturers = response.data;
-      //console.log(response.data);
-    });
+    this.getResults();
   },
   methods: {
+    getResults(page) {
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+      this.axios
+        .get("/api/lecturers?page=" + page)
+        .then(response => {
+          this.lecturers = response.data;
+          //console.log(response);
+        });
+    },    
     deleteLecturer(id) {
       this.axios
         .delete(`/api/lecturers/${id}`)

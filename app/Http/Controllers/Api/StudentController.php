@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = Student::withCount('course_groups')->latest('id')->get();
+        $students = Student::withCount('course_groups')->latest('id')->paginate(25);
         return response()->json($students);     
     }
 

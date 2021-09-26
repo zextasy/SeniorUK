@@ -21,7 +21,7 @@ class CourseGroupController extends Controller
     public function index()
     {
         //
-        $course_groups = CourseGroup::with('course', 'lecturer', 'semester')->withCount('students')->latest('id')->get(); //
+        $course_groups = CourseGroup::with('course', 'lecturer', 'semester')->withCount('students')->latest('id')->paginate(25); //
         return response()->json($course_groups);     
     }
 

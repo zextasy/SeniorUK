@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="semester in semesters" :key="semester.id">
+              <tr v-for="semester in semesters.data" :key="semester.id">
                 <td>{{ semester.id }}</td>
                 <td>{{ semester.season }}</td>
                 <td>{{ semester.year }}</td>
@@ -47,6 +47,7 @@
               </tr>
             </tbody>
           </table>
+          <pagination :data="semesters" align="center" size="small" :limit=10 @pagination-change-page="getResults"></pagination>
         </div>
       </div>
     </div>
@@ -57,16 +58,24 @@
 export default {
   data() {
     return {
-      semesters: [],
+      semesters: {},
     };
   },
   created() {
-    this.axios.get("/api/semesters").then((response) => {
-      this.semesters = response.data;
-      //console.log(response.data);
-    });
+    this.getResults();
   },
   methods: {
+    getResults(page) {
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+      this.axios
+        .get("/api/semesters?page=" + page)
+        .then(response => {
+          this.semesters = response.data;
+          //console.log(response);
+        });
+    },    
     deleteSemester(id) {
       this.axios
         .delete(`/api/semesters/${id}`)

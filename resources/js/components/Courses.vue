@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="course in courses" :key="course.id">
+              <tr v-for="course in courses.data" :key="course.id">
                 <td>{{ course.id }}</td>
                 <td>{{ course.name }}</td>
                 <td>{{ course.lecturers_count}}</td>
@@ -47,6 +47,7 @@
               </tr>
             </tbody>
           </table>
+          <pagination :data="courses" align="center" size="small" :limit=10 @pagination-change-page="getResults"></pagination>
         </div>
       </div>
     </div>
@@ -57,16 +58,24 @@
 export default {
   data() {
     return {
-      courses: [],
+      courses: {},
     };
   },
   created() {
-    this.axios.get("/api/courses").then((response) => {
-      this.courses = response.data;
-      //console.log(response.data);
-    });
+    this.getResults();
   },
   methods: {
+    getResults(page) {
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+      this.axios
+        .get("/api/courses?page=" + page)
+        .then(response => {
+          this.courses = response.data;
+          //console.log(response);
+        });
+    },    
     deleteCourse(id) {
       this.axios
         .delete(`/api/courses/${id}`)

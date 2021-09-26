@@ -17,7 +17,7 @@ class SemesterController extends Controller
     public function index()
     {
         //
-        $semesters = Semester::withCount('course_groups')->latest('id')->get();
+        $semesters = Semester::withCount('course_groups')->latest('id')->paginate(25);
         return response()->json($semesters);     
     }
 

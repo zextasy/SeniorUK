@@ -17,6 +17,16 @@ const router = new VueRouter({
     routes: routes
 });
 
+window.Vue = require('vue');
+  
+window.events = new Vue();
+window.flash = function(message) {
+    window.events.$emit('flash',message);
+}
+
+Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 const app = new Vue({
     el: '#app',
     router: router,

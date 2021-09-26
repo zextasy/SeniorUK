@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $courses = Course::distinct()->withCount('lecturers')->withCount('course_groups')->latest('id')->get();
+        $courses = Course::distinct()->withCount('lecturers')->withCount('course_groups')->latest('id')->paginate(25);
         return response()->json($courses);     
     }
 

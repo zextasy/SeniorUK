@@ -13,6 +13,7 @@
 
 <body>
     <div id="app"></div>
+    <flash message=""></flash>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 

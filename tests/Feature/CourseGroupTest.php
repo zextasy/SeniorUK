@@ -15,8 +15,9 @@ class CourseGroupTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->get('/');
+        $response = $this->call('GET', '/course-groups');
 
-        $response->assertStatus(200);
+        $this->assertEquals(200, $response->status());
+
     }
 }

@@ -17,7 +17,7 @@ class LecturerController extends Controller
     public function index()
     {
         //
-        $lecturers = Lecturer::withCount('course_groups')->latest('id')->get();
+        $lecturers = Lecturer::withCount('course_groups')->latest('id')->paginate(25);
         return response()->json($lecturers);
     }
 
