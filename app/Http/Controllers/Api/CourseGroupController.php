@@ -21,7 +21,7 @@ class CourseGroupController extends Controller
     public function index()
     {
         //
-        $course_groups = CourseGroup::with('course', 'lecturer', 'semester')->latest('id')->get(); //withCount('students')->
+        $course_groups = CourseGroup::with('course', 'lecturer', 'semester')->withCount('students')->latest('id')->get(); //
         return response()->json($course_groups);     
     }
 
@@ -64,7 +64,7 @@ class CourseGroupController extends Controller
     public function show($id)
     {
         //
-        $course_group = CourseGroup::with('course', 'lecturer', 'semester')->find($id);
+        $course_group = CourseGroup::with('course', 'lecturer', 'semester','students')->find($id);
         return response()->json($course_group);        
     }
 

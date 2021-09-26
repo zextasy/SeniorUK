@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\Lecturer;
 use App\Models\Semester;
 
+
 class CourseGroupSeeder extends Seeder
 {
     /**
@@ -20,17 +21,17 @@ class CourseGroupSeeder extends Seeder
     {
         //
         $courses = Course::all();
-        $lecturers = Lecturer::all();
-        $semesters = Semester::all();
+        $lecturers = Lecturer::pluck('id');
+        $semesters = Semester::pluck('id');
         foreach ($courses as $course) {
             // code...
-            for ($i=0; $i < 2; $i++) { 
+            for ($i=0; $i < 3; $i++) { 
                 // code...
                 $course_group = new CourseGroup([
                     'name' => ' GROUP '.$course->name.' '.$i,
                     'course_id' => $course->id,
-                    'lecturer_id' => $lecturers->random()->id,
-                    'semester_id' => $semesters->random()->id,
+                    'lecturer_id' => $lecturers->random(),
+                    'semester_id' => $semesters->random(),
                 ]);    
                 $course_group->save();                                
             }

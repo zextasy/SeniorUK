@@ -28,11 +28,54 @@
             </tr>                    
             <tr>
               <th>Students:</th>
-               <td>{{ course_group.id }}</td>
+               <td>{{ course_group.students_count }}</td>
             </tr>        
           </table>
         </div>
       </div>
+      <hr>
+      <h2>Students</h2>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+            Students
+            <router-link to="/students/add" class="btn btn-info float-right" style="margin-top:-7px;margin-left:2px;">Add Student</router-link>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Courses</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="student in course_group.students" :key="student.id">
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.mobile }}</td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.course_groups_count }}</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <router-link
+                      :to="{ name: 'show-student', params: { id: student.id } }"
+                      class="btn btn-primary"
+                      >View</router-link
+                    >                  
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>      
+      <hr>
     </div>
   </div>
 </template>

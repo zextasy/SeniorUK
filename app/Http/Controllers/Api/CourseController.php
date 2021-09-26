@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $courses = Course::withCount('lecturers')->withCount('course_groups')->latest('id')->get();
+        $courses = Course::distinct()->withCount('lecturers')->withCount('course_groups')->latest('id')->get();
         return response()->json($courses);     
     }
 
@@ -57,7 +57,7 @@ class CourseController extends Controller
     public function show($id)
     {
         //
-        $course = Course::find($id);
+        $course = Course::distinct()->with('lecturers','course_groups.lecturer','course_groups.semester')->find($id);
         return response()->json($course);        
     }
 

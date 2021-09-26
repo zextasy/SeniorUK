@@ -17,10 +17,10 @@ class Student extends Model
     ];   
 
     /**
-     * Get the course for the course group.
+     * Get the course for the student.
      */
     public function course_groups()
     {
-        // return $this->hasMany(CourseGroup::class);
+        return $this->belongsToMany(CourseGroup::class);
     }             
 }

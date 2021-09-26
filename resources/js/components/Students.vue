@@ -27,7 +27,7 @@
                 <td>{{ student.email }}</td>
                 <td>{{ student.mobile }}</td>
                 <td>{{ student.gender }}</td>
-                <td>{{ student.courses_count }}</td>
+                <td>{{ student.course_groups_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link

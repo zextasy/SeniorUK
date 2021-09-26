@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = Student::latest('id')->get();
+        $students = Student::withCount('course_groups')->latest('id')->get();
         return response()->json($students);     
     }
 
@@ -60,7 +60,7 @@ class StudentController extends Controller
     public function show($id)
     {
         //
-        $student = Student::find($id);
+        $student = Student::with('course_groups.lecturer','course_groups.semester','course_groups.course')->find($id);
         return response()->json($student);        
     }
 
@@ -85,7 +85,7 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $student = Student::find($id);
+        
         $student->update($request->all());
 
         return response()->json('Student data updated successfully!');                

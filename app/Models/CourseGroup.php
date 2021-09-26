@@ -43,6 +43,6 @@ class CourseGroup extends Model
      */
     public function students()
     {
-        // return $this->belongsTo(Lecturer::class);
+        return $this->belongsToMany(Student::class);
     }
 }

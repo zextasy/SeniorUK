@@ -27,13 +27,6 @@ class Course extends Model
         return $this->belongsToMany(Lecturer::class, CourseGroup::class);
     }
     /**
-     * Get the semesters for the course_group.
-     */
-    public function semesters()
-    {
-        return $this->belongsToMany(Semester::class, CourseGroup::class);
-    }                 
-    /**
      * Get the students for the course.
      */
     public function students()

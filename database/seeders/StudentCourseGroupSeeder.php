@@ -18,9 +18,11 @@ class StudentCourseGroupSeeder extends Seeder
     {
         //
         $students = Student::all();
-        $course_groups = CourseGroup::all();
+        $course_groups = CourseGroup::pluck('id');
         foreach ($students as $student) {
             // code...
+            $selected_course_groups = $course_groups->random(7);
+            $student->course_groups()->attach($selected_course_groups);
         }
     }
 }

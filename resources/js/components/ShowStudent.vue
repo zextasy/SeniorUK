@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="container">
-
       <h2>Student : {{ student.id }}</h2>
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -29,6 +28,44 @@
           </table>
         </div>
       </div>
+      <hr>
+      <h2>Student's Course Groups</h2>
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Lecturer</th>
+                <th>Semester</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="course_group in student.course_groups" :key="course_group.id">
+                <td>{{ course_group.id }}</td>
+                <td>{{ course_group.name }}</td>
+                <td>{{ course_group.course.name }}</td>
+                <td>{{ course_group.lecturer.name }}</td>
+                <td>{{ course_group.semester.season }} {{ course_group.semester.year }}</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <router-link
+                      :to="{ name: 'show-course-group', params: { id: course_group.id } }"
+                      class="btn btn-primary"
+                      >View</router-link
+                    >                  
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr>
+      </div>      
     </div>
   </div>
 </template>

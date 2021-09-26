@@ -21,5 +21,7 @@ class Lecturer extends Model
     public function course_groups()
     {
         return $this->hasMany(CourseGroup::class);
-    }       
+    }
+
+
 }

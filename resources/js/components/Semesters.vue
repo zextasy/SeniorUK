@@ -14,6 +14,7 @@
                 <th>ID</th>
                 <th>Season</th>
                 <th>Year</th>
+                <th>Course Groups</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -22,6 +23,7 @@
                 <td>{{ semester.id }}</td>
                 <td>{{ semester.season }}</td>
                 <td>{{ semester.year }}</td>
+                <td>{{ semester.course_groups_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link

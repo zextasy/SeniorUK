@@ -27,7 +27,7 @@
                 <td>{{ course_group.course.name }}</td>
                 <td>{{ course_group.lecturer.name }}</td>
                 <td>{{ course_group.semester.season }} {{ course_group.semester.year }}</td>
-                <td>{{ course_group.id }}</td>
+                <td>{{ course_group.students_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link

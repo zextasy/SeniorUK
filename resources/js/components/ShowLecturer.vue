@@ -26,16 +26,15 @@
         </div>
       </div>
       <hr>
+      <h2>Lecturer's Course Groups</h2>
       <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h5>Lecturer's Courses</h5>
-        </div>
         <div class="panel-body">
           <table class="table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Course</th>
                 <th>Semester</th>
                 <th>Students</th>
                 <th>Actions</th>
@@ -45,8 +44,9 @@
               <tr v-for="course_group in lecturer.course_groups" :key="course_group.id">
                 <td>{{ course_group.id }}</td>
                 <td>{{ course_group.name }}</td>
-                <td>{{ course_group.id}}</td>
-                <td>{{ course_group.id }}</td>
+                <td>{{ course_group.course.name }}</td>
+                <td>{{ course_group.semester.season }} {{ course_group.semester.year }}</td>
+                <td>{{ course_group.students_count }}</td>
                 <td>
                   <div class="btn-group" role="group">
                     <router-link
@@ -60,7 +60,8 @@
             </tbody>
           </table>
         </div>
-      </div>      
+      </div>
+      <hr>
     </div>
   </div>
 </template>
